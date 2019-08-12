@@ -1,4 +1,5 @@
 
+https://www.linkedin.com/pulse/aql-comprehensive-query-language-your-repositories-baruch-sadogursky/
 
 list the artifacts:
 
