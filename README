@@ -1,0 +1,1 @@
+ansible-playbook -i artifactory_cleanup.ini artifactory_cleanup.yml
