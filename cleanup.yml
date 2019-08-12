@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  tasks:
+  - name: List the artifacts which are not being used.
+    uri:
+      url: 'http://13.235.42.32:8081/artifactory/api/search/aql' --data 'items.find({"type":"file","created":{"$lt":"2014-05-18T"},"stat.downloaded":{"$lt":"2014-11-18T"},"repo":{"$nmatch":"*release*"},"size":{"$gt":"1000"}})'
+      return_content: yes
+      headers:
+        Content-Type: "text/plain"
+      method: POST
+      client_cert: 'AKCp5dKskeRv2quzhUwiVEs8BwywNDNUbF8QRLwx6Egd6SbJ2c2fV8j3PhAi2x8YD4LX1YStZ'
