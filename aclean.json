@@ -1,1 +1,1 @@
-items.find({"type":"file","created":{"$lt":"2014-05-18T"},"stat.downloaded":{"$lt":"2014-11-18T"},"repo":{"$nmatch":"*release*"},"size":{"$gt":"1000"}})
+items.find({"type":"file","created":{"$lt":"2018-05-18T"},"stat.downloaded":{"$lt":"2018-11-18T"},"repo":{"$nmatch":"*release*"},"size":{"$gt":"1000"}})
