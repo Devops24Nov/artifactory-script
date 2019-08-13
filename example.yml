@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  tasks:
+  - name: clean up
+    shell: 'curl -X POST -k -H "Content-Type:text/plain" -H "X-JFrog-Art-Api: AKCp5dKskeRv2quzhUwiVEs8BwywNDNUbF8QRLwx6Egd6SbJ2c2fV8j3PhAi2x8YD4LX1YStZ" -i http://13.234.204.22:8081/artifactory/api/search/aql -d@a.json'  
+    register: output
+
+  - name: "output"
+    debug: 
+      msg: "{{ output.stdout }}"
