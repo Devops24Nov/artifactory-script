@@ -1,2 +1,2 @@
 items.find({"type":"file","created":{"$lt":"2018-05-18T"},"stat.downloaded":{"$lt":"2018-11-18T"},"repo":{"$nmatch":"*release*"},"size":{"$gt":"1000"}})
-items.find({"stat.downloaded":{"$before": "3mo"},"repo":{"$match":"registry-eng"},"version"::{"$nmatch":"latest"}})
+items.find({"stat.downloaded":{"$before": "3mo"},"repo":{"$match":"registry-eng"},"version":{"$nmatch":"latest"}})
