@@ -3,3 +3,4 @@ ansible-playbook -i artifactory_cleanup.ini artifactory_cleanup.yml
 https://stackoverflow.com/questions/40844720/json-parsing-in-ansible
 
 https://www.linkedin.com/pulse/aql-comprehensive-query-language-your-repositories-baruch-sadogursky/
+https://www.jfrog.com/confluence/display/RTF/Artifactory+Query+Language
