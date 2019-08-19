@@ -5,3 +5,13 @@ items.find({"stat.downloaded":{"$before": "3mo"},"repo":{"$match":"registry-eng"
 items.find({"stat.downloaded":{"$before": "3mo"},"repo":{"$match":"registry-eng"},"$or":[{"path":{"$nmatch":"*latest"}, "path":{"$nmatch":"bac/python/2.7"},"path":{"$nmatch":"bac/python/3.6*"} }]})
 
 items.find({"stat.downloaded":{"$before": "3mo"},"repo":{"$match":"registry-eng"},"path":{"$nmatch":"*/latest"},"path":{"$nmatch":"bac/python/2.7*"},"path":{"$nmatch":"bac/python//3.6*"}})
+
+
+ALL:
+items.find({"repo":{"$match":"registry-eng"}})
+Deleted:
+items.find({"stat.downloaded":{"$before": "3mo"},"repo":{"$match":"registry-eng"},"path":{"$nmatch":"*/latest"},"path":{"$nmatch":"bac/python/2.7*"},"path":{"$nmatch":"bac/python/3.6*"}})
+
+Not Deleted items from repo:
+  
+items.find({"repo":{"$match":"registry-eng"},"path":{"$match":"*/latest"},"path":{"$match":"bac/python/2.7*"},"path":{"$match":"bac/python/3.6*"}})
