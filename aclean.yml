@@ -10,7 +10,7 @@
       msg: "{{ output.stdout }}"
   
   - name: Iterate
-    include_tasks: test2.yml
+    include_tasks: delete.yml
     vars:
       loopitem: "{{ item }}"
     with_dict: "{{ output.stdout }}"
