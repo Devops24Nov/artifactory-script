@@ -1,1 +1,2 @@
 
+items.find({"stat.downloaded":{"$before": "{{ months }}"},"repo":{"$match":"registry-eng"},"path":{"$nmatch":"*/latest"},"path":{"$nmatch":"bac/python/2.7*"},"path":{"$nmatch":"bac/python//3.6*"}})
