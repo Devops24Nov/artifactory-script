@@ -1,0 +1,25 @@
+
+1. install jdk:
+         sudo apt-get install software-properties-common && \
+         sudo add-apt-repository ppa:webupd8team/java -y && \
+         sudo apt-get update && \
+         sudo apt-get install openjdk-8-jdk -y
+
+2. download jfrog zip 
+    https://jfrog.com/open-source/
+    https://api.bintray.com/content/jfrog/artifactory/jfrog-artifactory-oss-$latest.zip;bt_package=jfrog-artifactory-oss-zip
+    
+3. upload zip file to server
+    scp zipfile ubuntu@hostname:/tmp
+    
+4. extract zip
+    unzip /tmp/zipfile
+5. create symbolic link
+
+    ln -s jfrogdir jfrog
+
+6. start the server
+    cd jfrog/bin
+    sh artifactory.sh
+    
+7. open the jfro throguh browser: http://hostname:8081/artifactory
