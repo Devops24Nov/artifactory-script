@@ -1,1 +1,33 @@
+months: 4m
+repos_match:
+  - registry-eng
+path_match:
+  - en_US
+  - nl_NL
+path_nmatch:
+  - *latest
+  - bac/python/2.7
+  - bac/python/3.6*
 
+items.find({"stat.downloaded":{"$before": "3mo"},"repo":{"$match":"registry-eng"},"$or":[{ {% for i in path_nmatch %} "path":{"$nmatch":"{{ i }}"} {% if not loop.last %},{% endif %} {% endfor %} }]})
+
+https://stackoverflow.com/questions/45505587/jinja-iterate-list-to-create-array-of-yaml-elements
+
+[ {% for i in my_list %}
+               {
+                 'name':'prefix-{{ i }}',
+                 'sshKey':'{{ lookup('file','/tmp/'+i) }}'
+               }
+               {% if not loop.last %},{% endif %}
+               {% endfor %}
+             ]
+             
+{% for i in range(11) %}
+ {{ i }}
+{% endfor %}
+
+[{ {% for i in path_nmatch %}
+               "path":{"$nmatch":"{{ i }}"}
+               {% if not loop.last %},{% endif %}
+               {% endfor %}
+             }]
