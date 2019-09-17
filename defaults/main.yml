@@ -1,11 +1,8 @@
-
+---
 months: 4m
 repos_match:
-  - registry-eng
-path_match:
-  - *xyz*
-  - *abc*
-path_nmatch:
-  - *latest
-  - bac/python/2.7
-  - bac/python/3.6*
+  - 'registry-eng'
+paths_nmatch:
+  - '*latest'
+  - 'bac/python/2.7'
+  - 'bac/python/3.6*'
