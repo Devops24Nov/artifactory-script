@@ -1,2 +1,3 @@
 
-items.find({"stat.downloaded":{"$before": "{{ months }}"},"repo":{"$match":"registry-eng"},"path":{"$nmatch":"*/latest"},"path":{"$nmatch":"bac/python/2.7*"},"path":{"$nmatch":"bac/python//3.6*"}})
+#items.find({"stat.downloaded":{"$before": "{{ months }}"},"repo":{"$match":"registry-eng"},"path":{"$nmatch":"*/latest"},"path":{"$nmatch":"bac/python/2.7*"},"path":{"$nmatch":"bac/python//3.6*"}})
+items.find({"stat.downloaded":{"$before": "{{ months }}"},{% for mrepo in repos_match %}"repo":{"$match":"{{ mrepo }}"}{% if not loop.last %},{% endif %} {% endfor %},"$or":[{ {% for nmpath in paths_nmatch %}"path":{"$nmatch":"{{ nmpath }}"}{% if not loop.last %},{% endif %} {% endfor %}}]})
