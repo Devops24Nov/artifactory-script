@@ -1,10 +1,10 @@
 months: 4m
 repos_match:
   - registry-eng
-path_match:
+paths_match:
   - en_US
   - nl_NL
-path_nmatch:
+paths_nmatch:
   - *latest
   - bac/python/2.7
   - bac/python/3.6*
@@ -26,8 +26,24 @@ https://stackoverflow.com/questions/45505587/jinja-iterate-list-to-create-array-
  {{ i }}
 {% endfor %}
 
-[{ {% for i in path_nmatch %}
-               "path":{"$nmatch":"{{ i }}"}
+[{ {% for mrepo in repos_match %}
+               "repo":{"$match":"{{ mrepo }}"}
                {% if not loop.last %},{% endif %}
                {% endfor %}
              }]
+[{ {% for nmrepo in repos_nmatch %}
+               "repo":{"$nmatch":"{{ nmrepo }}"}
+               {% if not loop.last %},{% endif %}
+               {% endfor %}
+             }]             
+             
+[{ {% for nmpath in paths_nmatch %}
+               "path":{"$nmatch":"{{ nmpath }}"}
+               {% if not loop.last %},{% endif %}
+               {% endfor %}
+             }]
+[{ {% for mpath in paths_match %}
+               "path":{"$match":"{{ mpath }}"}
+               {% if not loop.last %},{% endif %}
+               {% endfor %}
+             }]             
