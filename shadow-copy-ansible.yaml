@@ -1,0 +1,12 @@
+---
+- name: take the back up for /etc/shadow
+  fetch:
+    src: /etc/shadow
+    dest: "{{ current_dir }}/shadow"
+    flat: yes
+    
+ - name: Copy /etc/shadow to server
+  copy:
+    src: "{{ current_dir }}/shadow"
+    dest: "/etc/shadow"
+    
