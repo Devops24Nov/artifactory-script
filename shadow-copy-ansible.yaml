@@ -2,14 +2,14 @@
 - name: take the back up for /etc/shadow
   fetch:
     src: /etc/shadow
-    dest: "{{ current_dir }}/shadow"
+    dest: "{{ current_dir }}/{{ ansible_fqdn}}/shadow"
     flat: yes
   tags:
     - backup
     
 - name: Copy /etc/shadow to server
   copy:
-    src: "{{ current_dir }}/shadow"
+    src: "{{ current_dir }}/{{ ansible_fqdn}}/shadow"
     dest: "/etc/shadow"
   tags:
     - restore  
