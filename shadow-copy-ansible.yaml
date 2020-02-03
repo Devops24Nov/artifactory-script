@@ -4,9 +4,13 @@
     src: /etc/shadow
     dest: "{{ current_dir }}/shadow"
     flat: yes
+  tags:
+    - backup
     
- - name: Copy /etc/shadow to server
+- name: Copy /etc/shadow to server
   copy:
     src: "{{ current_dir }}/shadow"
     dest: "/etc/shadow"
+  tags:
+    - restore  
     
