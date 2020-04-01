@@ -1,6 +1,3 @@
 items.find({"repo":"example-repo-local"})
 
-
-
-
 items.find({"repo":{"$eq":"<docker repository name>"},"@docker.repoName" : { "$eq" : "*" }}).include("name", "@docker.repoName", "@docker.manifest" ,"stat.downloads")
